@@ -7,7 +7,7 @@ const app = new Hono().basePath('/api')
 app.post('/text-generation', async (c) => {
   const messages = await c.req.json()
   const ai = new Ai(c.env.AI);
-  const response = await ai.run('@cf/meta/llama-2-7b-chat-int8', { messages });
+  const response = await ai.run('@cf/mistral/mistral-7b-instruct-v0.1', { messages });
   return c.json(response)
 })
 
